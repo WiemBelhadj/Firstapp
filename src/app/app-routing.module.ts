@@ -13,10 +13,16 @@ const routes: Routes = [{
   component:MemberFormComponent,
 },
 {
+  path:'members/:id/edit',
+  pathMatch: 'full',
+  component:MemberFormComponent
+},
+{
   path:'**',
   redirectTo:'/members',
   pathMatch: 'full',
-}];
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
