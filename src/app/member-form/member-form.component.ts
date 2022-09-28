@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MemberService } from '../service/member.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { MemberService } from '../service/member.service';
 export class MemberFormComponent implements OnInit {
 form:any;
   // injection de dépendances ::  constructor(MemberService : MemberService) { }
-  constructor(private MemberService : MemberService) { }
+  constructor(private MemberService : MemberService, private router:Router) { }
 
 
 
@@ -32,7 +33,8 @@ form:any;
     console.log(this.form.value);
     // appeler la fonction saveMember du service pour ajouter la ligne dans le tableau
     const objectToSubmit = this.form.value;
-    this.MemberService.saveMember(objectToSubmit);////
+    this.MemberService.saveMember(objectToSubmit).then(()=>{this.router.navigate(['./members'])});
+    
   }
 
 

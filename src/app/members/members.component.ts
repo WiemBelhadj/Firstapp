@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GLOBAL } from '../app-config';
 import { Member } from '../modals/Member';
+import { MemberService } from '../service/member.service';
 
 @Component({
   selector: 'app-members',
@@ -9,13 +10,13 @@ import { Member } from '../modals/Member';
 })
 // utiliser la classe hors composant 
 export class MembersComponent implements OnInit {
-
-  constructor() { }
+  dataSource:Member[]; // members hiya titre mtaa tableau fil DB
+  constructor(private MemberService: MemberService) { 
+    this.dataSource = this.MemberService.tab;
+  }
 // Se lance avant constructeur 
   ngOnInit(): void {
   }
-
-  dataSource:Member[]=GLOBAL._DB.members ; // members hiya titre mtaa tableau fil DB
   displayedColumns: string[] = ['id', 'cin', 'name', 'createDate', 'cv', 'type','actions'];
 
 }
