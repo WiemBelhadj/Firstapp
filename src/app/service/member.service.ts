@@ -17,8 +17,8 @@ export class MemberService {
   {
     const objectToInsert = {
       ...member,
-      id: Math.ceil(Math.random() * 10000).toString(),
-      createDate: new Date().toISOString(),
+      id: member.id?? Math.ceil(Math.random() * 10000).toString(),
+      createDate:member.createDate?? new Date().toISOString(),
     };
 
     //afficher la nouvelle ligne en haut + le reste du tableau sans la ligne ajoutée en 1er lieu
@@ -27,6 +27,7 @@ export class MemberService {
     return new Promise(resolve => resolve());
 
     //this.httpClient.post<Member>('linktorestApi', member).toPromise() 
+    //id yemchi fi linktorestApi
 
     //créer un tableau dans le service (copie de la BD) 
     // Ajouter l'element "member" dans le tableau du service : cache : les operations crud
@@ -36,5 +37,17 @@ export class MemberService {
     return new Promise(resolve => resolve(
       this.tab.filter(item => item.id === currentID)[0] ?? null))
   }
+
+ deleteMemberById(id: string):Promise<void>{
+  //return this.httpClient.delete<void>('link').toPromise();
+  this.tab=this.tab.filter(item => item.id != id);
+  return new Promise(resolve => resolve());
+ }
+
+
+ getAllMembers():Promise<Member[]>{
+  //return this.httpClient.get<Member[]>('link').toPromise();
+  return new Promise(resolve => resolve(this.tab));
+ }
 
 }

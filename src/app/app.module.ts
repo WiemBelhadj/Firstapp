@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmDiamogComponent } from './confirm-diamog/confirm-diamog.component';
 
 
 
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     MembersComponent,
     EtudiantComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    ConfirmDiamogComponent
   ],
   imports: [
     BrowserModule,

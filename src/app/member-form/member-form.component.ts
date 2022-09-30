@@ -62,16 +62,10 @@ itemglobale:any;
   OnSub(): void {
     console.log(this.form.value);
     // appeler la fonction saveMember du service pour ajouter la ligne dans le tableau
-    const objectToSubmit = this.form.value;
+    const objectToSubmit ={ ...this.itemglobale,...this.form.value};
     this.MemberService.saveMember(objectToSubmit).then(()=>{this.router.navigate(['./members'])});
     
   }
-
-
-  // OnSub(): void {
-  //   console.log(this.form.value);
-  // }
-
 
 
 }
