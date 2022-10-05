@@ -4,4 +4,10 @@
         {"id":"56789", "cin":"11126279", "name":"Hela", "createDate":"21/09/2022", "cv":"lien", "type":"TEACHER"},
         {"id":"10111", "cin":"11126270", "name":"Ameni", "createDate":"22/09/2022", "cv":"lien", "type":"TEACHER"}
       ]
+,
+    "articles":[
+      {"idArticle":"1234","titre":"Alchimiste","annee":"2020","auteur":"Zola"},
+      {"idArticle":"5678","titre":"Halo","annee":"2021","auteur":"Byoncé"},
+      {"idArticle":"9101","titre":"Move On","annee":"2022","auteur":"Wiwiyet"}
+    ]
 }

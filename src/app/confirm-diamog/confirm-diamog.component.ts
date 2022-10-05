@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {MatDialogRef} from '@angular/material/dialog';
 @Component({
   selector: 'app-confirm-diamog',
   templateUrl: './confirm-diamog.component.html',
@@ -11,7 +11,7 @@ export class ConfirmDiamogComponent implements OnInit {
   public confirm ="Confirm";
   public Cancel ="Cancel";
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef <ConfirmDiamogComponent>) { }
 
   ngOnInit(): void {
   }

@@ -15,7 +15,17 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmDiamogComponent } from './confirm-diamog/confirm-diamog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { LayoutComponent } from './layout/layout.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { ToolsComponent } from './tools/tools.component';
+import { EventsComponent } from './events/events.component';
 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -24,13 +34,18 @@ import { ConfirmDiamogComponent } from './confirm-diamog/confirm-diamog.componen
     MembersComponent,
     EtudiantComponent,
     MemberFormComponent,
-    ConfirmDiamogComponent
+    ConfirmDiamogComponent,
+    LayoutComponent,
+    DashboardComponent,
+    ArticlesComponent,
+    ToolsComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,MatTableModule,MatIconModule,
     BrowserAnimationsModule,MatInputModule,MatFormFieldModule,MatButtonModule,FormsModule,ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule,MatDialogModule,MatSidenavModule,MatToolbarModule,MatListModule,MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

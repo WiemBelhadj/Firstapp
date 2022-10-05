@@ -1,0 +1,44 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+    <!-- id Column -->
+    <ng-container matColumnDef="idArticle">
+      <th mat-header-cell *matHeaderCellDef> idArticle</th>
+      <td mat-cell *matCellDef="let element"> {{element.idArticle}} </td>
+    </ng-container>
+  
+    <!-- Titre Column -->
+    <ng-container matColumnDef="titre">
+      <th mat-header-cell *matHeaderCellDef> titre </th>
+      <td mat-cell *matCellDef="let element"> {{element.titre}} </td>
+    </ng-container>
+  
+    <!-- Année Column -->
+    <ng-container matColumnDef="annee">
+      <th mat-header-cell *matHeaderCellDef> annee </th>
+      <td mat-cell *matCellDef="let element"> {{element.annee}} </td>
+    </ng-container>
+  
+    <!-- Auteur Column -->
+    <ng-container matColumnDef="auteur">
+      <th mat-header-cell *matHeaderCellDef> auteur </th>
+      <td mat-cell *matCellDef="let element"> {{element.auteur}} </td>
+    </ng-container>
+
+    <!-- icons Column -->
+      <ng-container matColumnDef="actions"> 
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+          <button ><mat-icon>edit</mat-icon></button>
+          <button>
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+          <button ><mat-icon>affect</mat-icon></button>
+        </td>
+            
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+  </table>
+  

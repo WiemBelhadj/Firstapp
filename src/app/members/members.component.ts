@@ -3,6 +3,9 @@ import { GLOBAL } from '../app-config';
 import { Member } from '../modals/Member';
 import { MemberService } from '../service/member.service';
 import {MatTableDataSource} from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDiamogComponent } from '../confirm-diamog/confirm-diamog.component';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 @Component({
   selector: 'app-members',
@@ -12,7 +15,7 @@ import {MatTableDataSource} from '@angular/material/table';
 // utiliser la classe hors composant 
 export class MembersComponent implements OnInit {
   dataSource: MatTableDataSource <Member>; // members hiya titre mtaa tableau fil DB
-  constructor(private MemberService: MemberService) { 
+  constructor(private MemberService: MemberService , private dialog: MatDialog) { 
     //this.dataSource = this.MemberService.tab;
     this.dataSource = new MatTableDataSource (this.MemberService.tab);
   }
@@ -23,13 +26,13 @@ export class MembersComponent implements OnInit {
 
   Ondelete(id:string): void {
   //1. ouvrir la boite de dialogue 
-
+  const dialogRef = this.dialog.open(ConfirmDiamogComponent,{});
   //2. attendre le résultat (le click de user)
-
-  //3. tester sur le boutton (retour)
-
+  dialogRef.afterClosed().subscribe(result => {if(result){
   //4. if click sur confirme : j'exécute le code below
-    this.MemberService.deleteMemberById(id).then(()=>{this.fetchDataSource()});
+  this.MemberService.deleteMemberById(id).then(()=>{this.fetchDataSource()});
+  }})   
+  //3. tester sur le boutton (retour)
   }
 
   fetchDataSource(): void {
